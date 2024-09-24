@@ -1,6 +1,6 @@
 import os
 
-file_path = "scripts/dummy.log"  # Use relative path if the file is in the repository
+file_path = "dummy.log"  # Use relative path if the file is in the repository
 
 def delete_file(file_path):
     try:
