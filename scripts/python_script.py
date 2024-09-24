@@ -1,23 +1,21 @@
 import os
+import subprocess
 
-file_path = "dummy.log"  # Use relative path if the file is in the repository
+# Path to the file you want to remove
+file_path = 'dummy.log'
 
-def delete_file(file_path):
-    try:
-        print(f"Current working directory: {os.getcwd()}")
-        print("Directory contents before deletion:")
-        print(os.listdir())
+# Remove the file
+if os.path.exists(file_path):
+    os.remove(file_path)
+    print(f"{file_path} has been removed.")
+else:
+    print(f"{file_path} does not exist.")
 
-        if os.path.exists(file_path):
-            os.remove(file_path)
-            print(f"File '{file_path}' has been deleted successfully.")
-        else:
-            print(f"File '{file_path}' not found.")
-        
-        print("Directory contents after deletion:")
-        print(os.listdir())
-    except Exception as e:
-        print(f"An error occurred: {e}")
+# Configure Git
+subprocess.run(['git', 'config', '--global', 'user.name', 'github-actions[bot]'])
+subprocess.run(['git', 'config', '--global', 'user.email', 'github-actions[bot]@users.noreply.github.com'])
 
-if __name__ == "__main__":
-    delete_file(file_path)
+# Commit and push the changes
+subprocess.run(['git', 'add', '.'])
+subprocess.run(['git', 'commit', '-m', 'Remove file.txt'])
+subprocess.run(['git', 'push'])
