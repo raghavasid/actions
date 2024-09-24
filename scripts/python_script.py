@@ -1,9 +1,10 @@
 import os
 
-file_path = "/actions/blob/main/dummy.log"
+file_path = "dummy.log"  # Use relative path if the file is in the repository
 
 def delete_file(file_path):
     try:
+        print(f"Current working directory: {os.getcwd()}")
         os.remove(file_path)
         print(f"File '{file_path}' has been deleted successfully.")
     except FileNotFoundError:
