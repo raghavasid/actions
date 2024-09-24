@@ -5,8 +5,10 @@ file_path = "dummy.log"  # Use relative path if the file is in the repository
 def delete_file(file_path):
     try:
         print(f"Current working directory: {os.getcwd()}")
+        print(f"Files before deletion: {os.listdir()}")
         os.remove(file_path)
         print(f"File '{file_path}' has been deleted successfully.")
+        print(f"Files after deletion: {os.listdir()}")
     except FileNotFoundError:
         print(f"File '{file_path}' not found.")
     except Exception as e:
