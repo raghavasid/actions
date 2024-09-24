@@ -16,4 +16,6 @@ jobs:
         python-version: '3.x'
 
     - name: Run delete file script
-      run: python scripts/python_script.py
+      run: |
+        cd scripts
+        python python_script.py
