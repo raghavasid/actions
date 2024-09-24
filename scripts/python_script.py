@@ -1,6 +1,6 @@
 import os
 
-file_path = "/workspaces/actions/dummy.log"
+file_path = "https://github.com/raghavasid/actions/blob/main/dummy.log"
 
 def delete_file(file_path):
     try:
